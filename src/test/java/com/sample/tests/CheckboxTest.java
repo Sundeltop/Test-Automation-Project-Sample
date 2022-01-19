@@ -1,5 +1,6 @@
 package com.sample.tests;
 
+import com.sample.pages.CheckboxPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -11,7 +12,7 @@ public class CheckboxTest extends BaseTest {
     @Description("Verify click checkbox selects it")
     @Test
     public void checkSelectCheckbox() {
-        checkboxPage
+        getPage(CheckboxPage.class)
                 .open()
                 .clickFirstCheckbox()
                 .isFirstCheckboxSelected();
@@ -21,7 +22,7 @@ public class CheckboxTest extends BaseTest {
     @Description("Verify double click checkbox unselects it")
     @Test
     public void checkUnselectCheckbox() {
-        checkboxPage
+        getPage(CheckboxPage.class)
                 .open()
                 .clickFirstCheckbox()
                 .clickFirstCheckbox()
