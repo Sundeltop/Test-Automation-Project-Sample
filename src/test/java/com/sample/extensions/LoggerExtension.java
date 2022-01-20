@@ -18,7 +18,7 @@ public class LoggerExtension implements BeforeEachCallback, AfterEachCallback {
     public void afterEach(ExtensionContext extensionContext) {
         String logMessage;
         if (extensionContext.getExecutionException().isPresent()) {
-            logMessage = "Test %s is failed: " + extensionContext.getExecutionException().get().getMessage();
+            logMessage = "Test %s is failed: " + extensionContext.getExecutionException().get().getCause().getMessage();
         } else {
             logMessage = "Test %s is passed";
         }
