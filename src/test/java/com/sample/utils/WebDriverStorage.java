@@ -2,11 +2,11 @@ package com.sample.utils;
 
 import org.openqa.selenium.WebDriver;
 
-public class WebDriverConfig {
+public class WebDriverStorage {
 
     private static final ThreadLocal<WebDriver> driverInstance = new ThreadLocal<>();
 
-    private WebDriverConfig() throws IllegalAccessException {
+    private WebDriverStorage() throws IllegalAccessException {
         throw new IllegalAccessException("Can not create object of this class");
     }
 

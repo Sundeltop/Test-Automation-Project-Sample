@@ -3,7 +3,7 @@ package com.sample.extensions;
 import com.sample.annotations.Browser;
 import com.sample.utils.WaitConfig;
 import com.sample.utils.WaitUtils;
-import com.sample.utils.WebDriverConfig;
+import com.sample.utils.WebDriverStorage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
@@ -30,7 +30,7 @@ public class SetupExtension implements BeforeAllCallback, BeforeEachCallback {
         if (Objects.isNull(extensionContext.getRequiredTestClass().getAnnotation(Browser.class))
                 && Objects.isNull(extensionContext.getRequiredTestMethod().getAnnotation(Browser.class))) {
             WebDriverManager.chromedriver().setup();
-            WebDriverConfig.setWebDriver(new ChromeDriver());
+            WebDriverStorage.setWebDriver(new ChromeDriver());
         }
     }
 }

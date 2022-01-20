@@ -3,7 +3,7 @@ package com.sample.tests;
 import com.sample.extensions.SetupExtension;
 import com.sample.extensions.LoggerExtension;
 import com.sample.pages.BasePage;
-import com.sample.utils.WebDriverConfig;
+import com.sample.utils.WebDriverStorage;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,8 +13,8 @@ public class BaseTest {
 
     @AfterEach
     void tearDown() {
-        WebDriverConfig.clearCookies();
-        WebDriverConfig.closeBrowser();
+        WebDriverStorage.clearCookies();
+        WebDriverStorage.closeBrowser();
     }
 
     @SneakyThrows

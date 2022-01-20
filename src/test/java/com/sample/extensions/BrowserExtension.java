@@ -1,7 +1,7 @@
 package com.sample.extensions;
 
 import com.sample.annotations.Browser;
-import com.sample.utils.WebDriverConfig;
+import com.sample.utils.WebDriverStorage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
@@ -32,11 +32,11 @@ public class BrowserExtension implements BeforeAllCallback, BeforeEachCallback {
         switch (browserAnnotation.browser()) {
             case chrome -> {
                 WebDriverManager.chromedriver().setup();
-                WebDriverConfig.setWebDriver(new ChromeDriver());
+                WebDriverStorage.setWebDriver(new ChromeDriver());
             }
             case edge -> {
                 WebDriverManager.edgedriver().setup();
-                WebDriverConfig.setWebDriver(new EdgeDriver());
+                WebDriverStorage.setWebDriver(new EdgeDriver());
             }
         }
     }

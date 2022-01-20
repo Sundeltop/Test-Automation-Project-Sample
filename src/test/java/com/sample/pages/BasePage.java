@@ -1,6 +1,6 @@
 package com.sample.pages;
 
-import com.sample.utils.WebDriverConfig;
+import com.sample.utils.WebDriverStorage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +10,7 @@ public class BasePage {
     protected final WebDriver driver;
 
     public BasePage() {
-        this.driver = WebDriverConfig.getWebDriver();
+        this.driver = WebDriverStorage.getWebDriver();
         PageFactory.initElements(driver, this);
     }
 
