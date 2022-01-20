@@ -1,5 +1,6 @@
 package com.sample.tests;
 
+import com.sample.extensions.LoggerExtension;
 import com.sample.extensions.ScreenshotExtension;
 import com.sample.pages.BasePage;
 import com.sample.utils.WaitConfig;
@@ -13,7 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.concurrent.TimeUnit;
 
-@ExtendWith(ScreenshotExtension.class)
+@ExtendWith({ScreenshotExtension.class, LoggerExtension.class})
 public class BaseTest {
 
     @BeforeAll
