@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static com.sample.enums.Pages.CHECKBOX_PAGE;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -16,9 +17,9 @@ public class CheckboxPage extends BasePage {
         super();
     }
 
-    public CheckboxPage open() {
-        openUrl("https://formy-project.herokuapp.com/checkbox");
-        return this;
+    @Override
+    protected String getURL() {
+        return CHECKBOX_PAGE.getValue();
     }
 
     @Step("User clicks first checkbox")

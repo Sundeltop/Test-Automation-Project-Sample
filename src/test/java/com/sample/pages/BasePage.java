@@ -5,17 +5,19 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasePage {
+public abstract class BasePage {
 
-    protected final WebDriver driver;
+    private final WebDriver driver;
 
     public BasePage() {
         this.driver = WebDriverStorage.getWebDriver();
-        PageFactory.initElements(driver, this);
+        openUrl(getURL());
     }
 
-    @Step("User opens {0}")
-    public void openUrl(String URL) {
+    protected abstract String getURL();
+
+    @Step("User opens {0} URL")
+    private void openUrl(String URL) {
         driver.get(URL);
     }
 

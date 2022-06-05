@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static com.sample.enums.Pages.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DatePickerPage extends BasePage {
@@ -21,13 +22,13 @@ public class DatePickerPage extends BasePage {
         super();
     }
 
-    public DatePickerPage open() {
-        openUrl("https://formy-project.herokuapp.com/datepicker");
-        return this;
+    @Override
+    protected String getURL() {
+        return DATE_PICKER_PAGE.getValue();
     }
 
-    @Step("User selects date {0}")
-    public DatePickerPage selectDate(String date) {
+    @Step("User selects {0} date from calendar")
+    public DatePickerPage selectDateFromCalendar(String date) {
         dateInput.sendKeys(date, Keys.ENTER);
         return this;
     }
