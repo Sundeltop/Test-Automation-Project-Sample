@@ -11,17 +11,15 @@ public class LoggerExtension implements BeforeEachCallback, AfterEachCallback {
 
     @Override
     public void beforeEach(ExtensionContext extensionContext) {
-        logger.info(String.format("Test %s is starting", extensionContext.getRequiredTestMethod().getName()));
+        logger.info("Test %s is starting".formatted(extensionContext.getRequiredTestMethod().getName()));
     }
 
     @Override
     public void afterEach(ExtensionContext extensionContext) {
-        String logMessage;
+        String logMessage = "Test %s is passed";
         if (extensionContext.getExecutionException().isPresent()) {
             logMessage = "Test %s is failed: " + extensionContext.getExecutionException().get().getCause().getMessage();
-        } else {
-            logMessage = "Test %s is passed";
         }
-        logger.info(String.format(logMessage, extensionContext.getRequiredTestMethod().getName()));
+        logger.info(logMessage.formatted(extensionContext.getRequiredTestMethod().getName()));
     }
 }

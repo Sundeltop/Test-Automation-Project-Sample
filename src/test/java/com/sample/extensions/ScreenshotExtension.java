@@ -4,6 +4,7 @@ import com.sample.utils.WebDriverStorage;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.platform.commons.support.AnnotationSupport;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -19,10 +20,11 @@ public class ScreenshotExtension implements AfterTestExecutionCallback {
         }
     }
 
-    public void captureScreenshot(String fileName) {
+    private void captureScreenshot(String fileName) {
         TakesScreenshot screenshot = (TakesScreenshot) WebDriverStorage.getWebDriver();
         try {
-            FileUtils.copyFile(screenshot.getScreenshotAs(OutputType.FILE), new File(String.format("target/screenshots/screenshot-%s.png", fileName)));
+            FileUtils.copyFile(screenshot.getScreenshotAs(OutputType.FILE),
+                    new File(String.format("target/screenshots/screenshot-%s.png", fileName)));
         } catch (IOException e) {
             e.printStackTrace();
         }
