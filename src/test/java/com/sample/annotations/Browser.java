@@ -11,11 +11,9 @@ import java.lang.annotation.Target;
 
 import static com.sample.enums.BrowserType.CHROME;
 
-
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith(BrowserExtension.class)
 public @interface Browser {
-
     BrowserType browser() default CHROME;
 }

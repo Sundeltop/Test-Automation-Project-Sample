@@ -2,30 +2,24 @@ package com.sample.tests;
 
 import com.sample.annotations.Browser;
 import com.sample.annotations.Log;
+import com.sample.annotations.Wait;
 import com.sample.pages.BasePage;
-import com.sample.utils.WaitConfig;
-import com.sample.utils.WaitUtils;
 import com.sample.utils.WebDriverStorage;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.concurrent.TimeUnit;
-
 import static com.sample.enums.BrowserType.CHROME;
+import static java.util.concurrent.TimeUnit.MICROSECONDS;
 
 @Browser(browser = CHROME)
 @Log
+@Wait(timeUnit = MICROSECONDS, implicit = 5, explicit = 5)
 public class BaseTest {
 
     @BeforeAll
     static void setUp() {
-        WaitUtils.setWaitConfiguration(WaitConfig.builder()
-                .defaultImplicitTimeUnit(TimeUnit.SECONDS)
-                .defaultExplicitTimeout(5)
-                .defaultImplicitTimeout(5)
-                .build());
         System.setProperty("video.folder", "target/videos/");
     }
 

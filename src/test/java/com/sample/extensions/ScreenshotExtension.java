@@ -20,10 +20,11 @@ public class ScreenshotExtension implements AfterTestExecutionCallback {
         }
     }
 
-    public void captureScreenshot(String fileName) {
+    private void captureScreenshot(String fileName) {
         TakesScreenshot screenshot = (TakesScreenshot) WebDriverStorage.getWebDriver();
         try {
-            FileUtils.copyFile(screenshot.getScreenshotAs(OutputType.FILE), new File(String.format("target/screenshots/screenshot-%s.png", fileName)));
+            FileUtils.copyFile(screenshot.getScreenshotAs(OutputType.FILE),
+                    new File(String.format("target/screenshots/screenshot-%s.png", fileName)));
         } catch (IOException e) {
             e.printStackTrace();
         }
