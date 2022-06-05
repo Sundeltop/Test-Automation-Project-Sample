@@ -7,6 +7,7 @@ import com.sample.utils.WebDriverStorage;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.support.PageFactory;
 
 @ExtendWith({LoggerExtension.class, SetupExtension.class})
 public class BaseTest {
@@ -18,7 +19,7 @@ public class BaseTest {
     }
 
     @SneakyThrows
-    protected <T extends BasePage> T getPage(Class<T> cls) {
-        return cls.getDeclaredConstructor().newInstance();
+    protected <T extends BasePage> T getPage(Class<T> clazz) {
+        return PageFactory.initElements(WebDriverStorage.getWebDriver(), clazz);
     }
 }

@@ -8,7 +8,6 @@ public class CheckboxTest extends BaseTest {
     @Test
     public void checkSelectCheckbox() {
         getPage(CheckboxPage.class)
-                .open()
                 .clickFirstCheckbox()
                 .isFirstCheckboxSelected();
     }
@@ -16,7 +15,6 @@ public class CheckboxTest extends BaseTest {
     @Test
     public void checkUnselectCheckbox() {
         getPage(CheckboxPage.class)
-                .open()
                 .clickFirstCheckbox()
                 .clickFirstCheckbox()
                 .isFirstCheckboxNotSelected();

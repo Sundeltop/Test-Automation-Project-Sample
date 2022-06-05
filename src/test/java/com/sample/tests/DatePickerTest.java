@@ -15,8 +15,7 @@ public class DatePickerTest extends BaseTest {
     @Browser(browser = Browser.BrowserType.chrome)
     public void checkSelectDateRemovesDatePicker() {
         getPage(DatePickerPage.class)
-                .open()
-                .selectDate(LocalDate.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")))
+                .selectDateFromCalendar(LocalDate.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")))
                 .isDatePickerNotVisible();
     }
 }
