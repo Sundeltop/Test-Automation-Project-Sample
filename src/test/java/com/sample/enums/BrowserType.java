@@ -2,11 +2,11 @@ package com.sample.enums;
 
 import com.sample.utils.WebDriverStorage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -16,9 +16,9 @@ public enum BrowserType {
     FIREFOX(FirefoxDriver.class),
     EDGE(EdgeDriver.class);
 
-    private final Class<? extends RemoteWebDriver> driver;
+    private final Class<? extends WebDriver> driver;
 
-    BrowserType(Class<? extends RemoteWebDriver> driver) {
+    BrowserType(Class<? extends WebDriver> driver) {
         this.driver = driver;
     }
 

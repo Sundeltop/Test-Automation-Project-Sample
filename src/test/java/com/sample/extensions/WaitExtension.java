@@ -10,7 +10,7 @@ public class WaitExtension implements BeforeAllCallback {
 
     @Override
     public void beforeAll(ExtensionContext extensionContext) {
-        Wait waitAnnotation = extensionContext.getRequiredTestClass().getSuperclass().getAnnotation(Wait.class);
+        Wait waitAnnotation = extensionContext.getRequiredTestClass().getAnnotation(Wait.class);
 
         WaitUtils.setWaitConfiguration(WaitConfig.builder()
                 .defaultImplicitTimeUnit(waitAnnotation.timeUnit())

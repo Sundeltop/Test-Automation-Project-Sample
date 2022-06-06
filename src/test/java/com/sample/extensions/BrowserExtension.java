@@ -16,10 +16,6 @@ public class BrowserExtension implements BeforeAllCallback, BeforeEachCallback {
     @Override
     public void beforeAll(ExtensionContext extensionContext) {
         Browser classBrowserAnnotation = extensionContext.getRequiredTestClass().getAnnotation(Browser.class);
-        if (Objects.isNull(classBrowserAnnotation)) {
-            classBrowserAnnotation = extensionContext.getRequiredTestClass()
-                    .getSuperclass().getAnnotation(Browser.class);
-        }
         extensionContext.getStore(BROWSER_NAMESPACE).put(BROWSER_KEY, classBrowserAnnotation);
     }
 
