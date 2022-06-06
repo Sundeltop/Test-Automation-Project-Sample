@@ -12,7 +12,6 @@ import java.time.format.DateTimeFormatter;
 import static com.sample.enums.BrowserType.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-@Disabled
 public class DatePickerTest extends BaseTest {
 
     @Test
