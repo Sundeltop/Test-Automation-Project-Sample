@@ -11,11 +11,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.sample.enums.BrowserType.CHROME;
-import static java.util.concurrent.TimeUnit.MICROSECONDS;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 @Browser(browser = CHROME)
 @Log
-@Wait(timeUnit = MICROSECONDS, implicit = 5, explicit = 5)
+@Wait(timeUnit = SECONDS, implicit = 3, explicit = 3)
 public class BaseTest {
 
     @BeforeAll

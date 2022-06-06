@@ -7,7 +7,7 @@ public class WebDriverStorage {
     private static final ThreadLocal<WebDriver> driverInstance = new ThreadLocal<>();
 
     private WebDriverStorage() throws IllegalAccessException {
-        throw new IllegalAccessException("Can not create object of this class");
+        throw new IllegalAccessException("Can't create object of static class");
     }
 
     public static WebDriver getWebDriver() {
@@ -26,5 +26,4 @@ public class WebDriverStorage {
     public static void clearCookies() {
         driverInstance.get().manage().deleteAllCookies();
     }
-
 }

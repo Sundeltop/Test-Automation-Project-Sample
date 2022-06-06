@@ -20,8 +20,4 @@ public abstract class BasePage {
     private void openUrl(String URL) {
         driver.get(URL);
     }
-
-    public WebDriver getDriver() {
-        return driver;
-    }
 }
