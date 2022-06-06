@@ -15,7 +15,7 @@
         <allure.version>2.13.6</allure.version>
         <aspectj.version>1.9.7</aspectj.version>
         <selenium.version>3.141.59</selenium.version>
-        <lo4j.version>1.2.17</lo4j.version>
+        <lo4j.version>2.17.1</lo4j.version>
         <lombok.version>1.18.22</lombok.version>
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <slf4j.version>1.7.30</slf4j.version>
@@ -45,8 +45,8 @@
             <version>${webdrivermanager.version}</version>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
             <version>${lo4j.version}</version>
         </dependency>
         <dependency>
