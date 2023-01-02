@@ -7,6 +7,7 @@ import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 public class LoggerExtension implements BeforeEachCallback, AfterEachCallback {
+
     private static final Logger logger = LogManager.getLogger(LoggerExtension.class);
 
     @Override

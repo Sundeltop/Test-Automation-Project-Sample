@@ -5,7 +5,9 @@ import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-import java.util.Objects;
+import java.util.Optional;
+
+import static org.junit.platform.commons.util.AnnotationUtils.findAnnotation;
 
 public class BrowserExtension implements BeforeAllCallback, BeforeEachCallback {
 
@@ -15,17 +17,22 @@ public class BrowserExtension implements BeforeAllCallback, BeforeEachCallback {
 
     @Override
     public void beforeAll(ExtensionContext extensionContext) {
-        Browser classBrowserAnnotation = extensionContext.getRequiredTestClass().getAnnotation(Browser.class);
-        extensionContext.getStore(BROWSER_NAMESPACE).put(BROWSER_KEY, classBrowserAnnotation);
+        Optional<Browser> classBrowserAnnotation = findAnnotation(extensionContext.getRequiredTestClass(), Browser.class);
+
+        if (classBrowserAnnotation.isEmpty())
+            throw new IllegalStateException("@Browser annotation is required for all tests classes");
+
+        extensionContext.getStore(BROWSER_NAMESPACE).put(BROWSER_KEY, classBrowserAnnotation.get());
     }
 
     @Override
     public void beforeEach(ExtensionContext extensionContext) {
         Browser browserAnnotation = extensionContext.getStore(BROWSER_NAMESPACE).get(BROWSER_KEY, Browser.class);
-        Browser methodBrowserAnnotation = extensionContext.getRequiredTestMethod().getAnnotation(Browser.class);
-        if (Objects.nonNull(methodBrowserAnnotation)) {
-            browserAnnotation = methodBrowserAnnotation;
-        }
+        Optional<Browser> methodBrowserAnnotation = findAnnotation(extensionContext.getRequiredTestMethod(), Browser.class);
+
+        if (methodBrowserAnnotation.isPresent())
+            browserAnnotation = methodBrowserAnnotation.get();
+
         browserAnnotation.browser().setup();
     }
 }

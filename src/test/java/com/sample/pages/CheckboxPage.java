@@ -5,8 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static com.sample.enums.Pages.CHECKBOX_PAGE;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CheckboxPage extends BasePage {
 
@@ -30,11 +29,11 @@ public class CheckboxPage extends BasePage {
 
     @Step("First checkbox is selected")
     public void isFirstCheckboxSelected() {
-        assertTrue(firstCheckbox.isSelected());
+        assertThat(firstCheckbox.isSelected()).isTrue();
     }
 
     @Step("First checkbox is not selected")
     public void isFirstCheckboxNotSelected() {
-        assertFalse(firstCheckbox.isSelected());
+        assertThat(firstCheckbox.isSelected()).isFalse();
     }
 }

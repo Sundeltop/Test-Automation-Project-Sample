@@ -23,4 +23,11 @@ public class CheckboxTest extends BaseTest {
                 .clickFirstCheckbox()
                 .isFirstCheckboxNotSelected();
     }
+
+    @Test
+    public void checkSelectCheckboxCrossBrowser() {
+        getPage(CheckboxPage.class)
+                .clickFirstCheckbox()
+                .isFirstCheckboxSelected();
+    }
 }

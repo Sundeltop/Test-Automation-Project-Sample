@@ -7,8 +7,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static com.sample.enums.Pages.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.sample.enums.Pages.DATE_PICKER_PAGE;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DatePickerPage extends BasePage {
 
@@ -35,6 +35,6 @@ public class DatePickerPage extends BasePage {
 
     @Step("Date picker is not visible")
     public void isDatePickerNotVisible() {
-        assertEquals(0, datePicker.size());
+        assertThat(datePicker).hasSize(0);
     }
 }
